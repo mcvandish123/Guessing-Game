@@ -1,9 +1,10 @@
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import { randomNum } from './logic.js';
+const rl = readline.createInterface({ input, output });
 
 async function guessGame() {
-  const rl = readline.createInterface({ input, output });
+
   console.log("\nWelcome to the Number Guessing Game! \nI'm thinking of a number between 1 and 100.\nYou have 5 chances to guess the correct number.\n ");
 
   let diff;
@@ -21,13 +22,9 @@ async function guessGame() {
     diff = selectDiff;
     console.log('\nGreat! You have selected the Hard difficulty level. \nLet\'s start the game!');
   }
-  
-  let running = true;
 
-  while(running) {
-    const numberType = rl.question('Enter your choice: ');
-    randomNum(diff, numberType);
-  }
-  rl.close();
+  randomNum(diff);
 }
 guessGame();
+
+export { rl }
