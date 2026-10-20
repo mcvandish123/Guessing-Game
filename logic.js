@@ -16,7 +16,7 @@ let levelDiff = {
 }
 
 async function randomNum(diff) {
-  const computerChoice = Math.floor(100 * Math.random());
+  const computerChoice = Math.floor((100 * Math.random()) + 1);
   let running = true;
   let attempts;
 
@@ -30,6 +30,7 @@ async function randomNum(diff) {
 
   while (running) {
     const numberType = await rl.question('\nEnter your choice: ')
+
     if (Number(numberType) > computerChoice) {
       console.log(`Incorrect! The number is less than ${numberType}`)
       attempts--;
@@ -39,7 +40,7 @@ async function randomNum(diff) {
     } 
 
     if (Number(numberType) === computerChoice) {
-      console.log(`Congratulations! You guessed the correct number in ${attempts} attempts`)
+      console.log(`Congratulations! You guessed the correct number in ${attempts} chances`)
       running = false;
       rl.close(); 
     }
