@@ -12,8 +12,16 @@ let levelDiff = {
     chances: 3
   }
 }
-async function randomNum(diff) {
+async function randomNum(diff, numberType) {
   const computerChoice = Math.floor(100 * Math.random());
+
+  if (diff === levelDiff.easy.name) {
+    
+  } else if (diff === levelDiff.medium.name) {
+
+  } else if (diff === levelDiff.hard.name) {
+
+  }
   
 }
 
